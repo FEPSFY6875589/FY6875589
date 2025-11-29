@@ -76,7 +76,49 @@
       Total word count (Introduction + Analysis & Discussion):
       <strong><span id='wordCountDisplay'>0</span></strong> words
     </div>
-    
-    
-    
+
+    <! --TIME STAMP-- >
+    <div class='timestamp'>
+      Last modified on GitHub: <span id='lastmodified'>Loading...</span><br>
+      <button onclick='getLastUpdatedTime()'>Verify Last Modified Time</button>
+    </div>
+
+
+    <! --JAVASCRIPT SECTION FOR FUNCTIONAL WORD COUNT AND TIMESTAMP-- >
+
+    <script>
+      // WORD COUNT
+
+      function countWords() {
+        const intro = document.getElementById('Introduction_text').innerText;
+        const analysis = document.getElementById('Analysis_text').innerText;
+        const totalText = intro + '' + analysis;
+        const wordCount = totalText.trim().split(/\s+/).filter(word => word.length > 0).length;
+          document.getElementById('wordCountDisplay').textContent = wordCount;
+      }
+
+
+      // TIMESTAMP
+
+      const githubUsername = 'FEPSFY6875589';
+      const githubRepo = 'FY6875589';
+
+      async function getLastUpdatedTime() {
+        try {
+          const response = await fetch('https://api.github.com/repos/${githubUsername}/${githubRepo}/commits/main');
+          const data = await response.json();
+          const date = new Date(data.commit.committer.date);
+          document.getElementById('lastModified').textContent = date.tolocalesString();
+        } catch (error) {
+            document.getElementById('lastModified').textContent = 'Error loading timestamp';
+        }
+      }
+
+      window.onload = function() {
+        countWords();
+        getLastUpdatedTime();
+      };
+      
+    </script>
   </body>
+</html>
