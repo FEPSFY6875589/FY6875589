@@ -90,7 +90,7 @@
       // WORD COUNT
 
       function countWords() {
-        const intro = document.getElementById('Introduction_text').innerText;
+        const intro = document.getElementById('introduction_text').innerText;
         const analysis = document.getElementById('Analysis_text').innerText;
         const totalText = intro + '' + analysis;
         const wordCount = totalText.trim().split(/\s+/).filter(word => word.length > 0).length;
