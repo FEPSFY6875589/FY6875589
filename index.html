@@ -138,8 +138,10 @@
               alert("Last modified time has been successfully verified from GitHub API.");
           }
           // Initial load to display the time on page load
-          window.onload = getLastUpdatedTime;
-          window.onload = countWord;
+          window.onload = function() {
+            countWords();
+            getLastUpdatedTime();
+          };
       </script>
 
     </script>
