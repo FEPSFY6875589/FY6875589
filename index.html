@@ -228,6 +228,55 @@
       <! --ADD MORE REFERENCES HERE-->
     </ol>
 
+
+    <!-- Back to Top Button -->
+  <button onclick="topFunction()" id="backToTopBtn" title="Return to top">
+      ↑ Top
+  </button>
+  
+  <style>
+      #backToTopBtn {
+          display: none;               /* Hidden by default */
+          position: fixed;             /* Stays in corner while scrolling */
+          bottom: 30px;
+          right: 30px;
+          z-index: 99;
+          background-color: #000000;
+          color: white;
+          border: none;
+          padding: 14px 20px;
+          font-size: 18px;
+          font-weight: bold;
+          cursor: pointer;
+          border-radius: 50px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+          transition: all 0.3s ease;
+      }
+      #backToTopBtn:hover {
+          background-color: #333333;
+          transform: scale(1.1);
+      }
+  </style>
+  
+  <script>
+      // Get the button
+      var mybutton = document.getElementById("backToTopBtn");
+  
+      // Show button when user scrolls down 300px
+      window.onscroll = function() {
+          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+              mybutton.style.display = "block";
+          } else {
+              mybutton.style.display = "none";
+          }
+      };
+  
+      // Smooth scroll back to top
+      function topFunction() {
+          window.scrollTo({top: 0, behavior: 'smooth'});
+      }
+    
+</script>
     <! --WORD COUNT-- >
 
     <div class='wordcount'>
